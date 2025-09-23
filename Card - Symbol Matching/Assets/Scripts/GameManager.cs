@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public ScoreManager scoreManager;
     public TimeManager timeManager;
     public MatchChecker matchChecker;
+    public GridManager gridManager;
     public UIManager uiManager;
     public AudioManager audioManager;
 
@@ -74,6 +75,8 @@ public class GameManager : MonoBehaviour
             return;
         }
         
+        gridManager.SetupGridConstraint(gameConfig);
+        
         foreach (Transform child in gridParent)
             Destroy(child.gameObject);
 
@@ -93,11 +96,11 @@ public class GameManager : MonoBehaviour
             deck[rand] = temp;
         }
 
-        for (var i = 0; i < deck.Count; i++)
+        foreach (var t in deck)
         {
             var cardGo = Instantiate(gameConfig.cardPrefab, gridParent);
             var card = cardGo.GetComponent<Card>();
-            card.SetupCard(deck[i]);
+            card.SetupCard(t);
         }
     }
 
