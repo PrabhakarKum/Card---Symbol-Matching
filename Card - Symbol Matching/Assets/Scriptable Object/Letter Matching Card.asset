@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afdb412ad34b360408c61a84a350fbe6, type: 3}
+  m_Name: Letter Matching Card
+  m_EditorClassIdentifier: 
+  cardPrefab: {fileID: 2211494836322999278, guid: 79dc5c8e9ef9f124380c0b567ac09f09, type: 3}
+  symbols:
+  - A
+  - B
+  - C
+  - D
+  - E
+  - F
+  cardFlipSound: {fileID: 8300000, guid: b7cd703bfb101f4489fce92b8bbf68e1, type: 3}
+  matchFoundSound: {fileID: 8300000, guid: 397f887ca5a702240b4c9338fe65fb9c, type: 3}
+  matchNotFoundSound: {fileID: 8300000, guid: 580c45279e0bb9b4fb35e5a97282e87f, type: 3}
+  maxScore: 500
+  attemptPenalty: 10
+  timePenalty: 2
+  matchCheckDelay: 0.5
