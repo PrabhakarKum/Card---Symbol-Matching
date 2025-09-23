@@ -15,21 +15,19 @@ public class MatchChecker : MonoBehaviour
     private Card _firstCard, _secondCard;
     public bool IsCheckingMatch { get; private set; }
 
-    public bool TrySelectCard(Card selectedCard)
+    public void TrySelectCard(Card selectedCard)
     {
-        if (IsCheckingMatch) return false;
+        if (IsCheckingMatch) return;
 
         if (_firstCard != null)
         {
-            if (_secondCard != null) return false;
+            if (_secondCard != null) return;
             _secondCard = selectedCard;
             StartCoroutine(CheckMatch());
-            return true;
+            return;
         }
 
         _firstCard = selectedCard;
-        return true;
-
     }
 
     private IEnumerator CheckMatch()
@@ -49,7 +47,7 @@ public class MatchChecker : MonoBehaviour
             _firstCard.ShakeAndHide();
             _secondCard.ShakeAndHide();
             
-            // Wait for shake animation to complete
+            // Waiting for shake animation to complete
             yield return new WaitForSeconds(0.3f);
         }
 

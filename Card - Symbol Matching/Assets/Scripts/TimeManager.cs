@@ -9,13 +9,11 @@ public class TimeManager : MonoBehaviour
     private float _elapsedTime = 0f;
     private bool _timerRunning = false;
 
-    void Update()
+    private void Update()
     {
-        if (_timerRunning)
-        {
-            _elapsedTime += Time.deltaTime;
-            UpdateTimeUI();
-        }
+        if (!_timerRunning) return;
+        _elapsedTime += Time.deltaTime;
+        UpdateTimeUI();
     }
 
     public void StartTimer()
@@ -24,16 +22,8 @@ public class TimeManager : MonoBehaviour
         _timerRunning = true;
     }
 
-    public void StopTimer()
-    {
-        _timerRunning = false;
-    }
-
-    private void UpdateTimeUI()
-    {
-        timeText.text = "Time: " + Mathf.FloorToInt(_elapsedTime) + "s";
-    }
-
+    public void StopTimer() => _timerRunning = false;
+    private void UpdateTimeUI() => timeText.text = "Time: " + Mathf.FloorToInt(_elapsedTime) + "s";
     public float GetElapsedTime() => _elapsedTime;
 
     public void ResetTimer()

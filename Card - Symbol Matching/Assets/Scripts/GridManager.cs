@@ -17,7 +17,7 @@ public class GridManager : MonoBehaviour
         var symbolCount = cardData.symbols.Count;
         var totalCards = symbolCount * 2;
         
-        int columns = CalculateOptimalColumns(symbolCount, totalCards);
+        var columns = CalculateOptimalColumns(symbolCount, totalCards);
         
         // Setting the constraint count based on symbol count
         gridLayoutGroup.constraint = GridLayoutGroup.Constraint.FixedColumnCount;

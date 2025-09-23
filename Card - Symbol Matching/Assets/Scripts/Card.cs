@@ -50,30 +50,17 @@ public class Card : MonoBehaviour
         backImage.gameObject.SetActive(true);
     }
     
-    public void HideCardAnimated()
-    {
-        if (!_isRevealed || _isFlipping) return;
-        
-        StartCoroutine(FlipCard(false));
-    }
-    
     public void ShakeAndHide()
     {
         if (!_isRevealed || _isFlipping) return;
-        
         StartCoroutine(ShakeAndHideCoroutine());
     }
-    public string GetSymbol()
-    {
-        return symbolText.text;
-    }
-    
+    public string GetSymbol() => symbolText.text;
     private IEnumerator ShakeAndHideCoroutine()
     {
         _isFlipping = true;
-
-        var currentPosition = transform.localPosition;
         
+        var currentPosition = transform.localPosition;
         // Shake animation
         var elapsedTime = 0f;
         while (elapsedTime < shakeDuration)
@@ -87,18 +74,15 @@ public class Card : MonoBehaviour
             yield return null;
         }
 
-        // Reset position
+        
         transform.localPosition = currentPosition;
-
-        // Then hide the card
         yield return StartCoroutine(FlipCard(false));
     }
     
     private IEnumerator FlipCard(bool reveal)
     {
         _isFlipping = true;
-
-        // rotate to 90 degrees
+        
         var time = 0f;
         var duration = 0.2f;
         var startRot = transform.rotation;
@@ -111,13 +95,13 @@ public class Card : MonoBehaviour
             yield return null;
         }
 
-        // swap front/back at halfway point
+        // Swapping front/back at halfway point
         if (reveal)
             RevealCard();
         else
             HideCard();
 
-        // rotate back to 0 degrees
+        // Rotating back to 0 degrees
         time = 0f;
         var endRot = Quaternion.Euler(0f, 0f, 0f);
         while (time < duration)

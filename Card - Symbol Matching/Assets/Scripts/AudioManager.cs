@@ -3,8 +3,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     private AudioSource _audioSource;
-
-    void Awake()
+    private void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
         if (_audioSource == null)

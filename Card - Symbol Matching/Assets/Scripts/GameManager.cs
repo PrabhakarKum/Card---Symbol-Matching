@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public UIManager uiManager;
     public AudioManager audioManager;
 
-    void Awake()
+    private void Awake()
     {
         Instance = this;
         SetupManagersWithConfig();
@@ -114,12 +114,7 @@ public class GameManager : MonoBehaviour
         scoreManager.IncrementMatches();
         audioManager.PlaySound(gameConfig.matchFoundSound);
     }
-
-    private void OnMatchNotFound()
-    {
-        audioManager.PlaySound(gameConfig.matchNotFoundSound);
-    }
-
+    private void OnMatchNotFound() => audioManager.PlaySound(gameConfig.matchNotFoundSound);
     private void OnMatchCheckComplete()
     {
         scoreManager.IncrementAttempts();

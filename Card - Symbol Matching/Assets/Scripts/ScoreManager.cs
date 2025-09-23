@@ -19,21 +19,12 @@ public class ScoreManager : MonoBehaviour
         _attempts++;
         UpdateAttemptsUI();
     }
-
-    public void IncrementMatches()
-    {
-        _matches++;
-    }
-
-    public int CalculateFinalScore(float elapsedTime)
-    {
-        return Mathf.Max(0, maxScore - (_attempts * attemptPenalty + Mathf.FloorToInt(elapsedTime) * timePenalty));
-    }
-    private void UpdateAttemptsUI()
-    {
-        attemptsText.text = "Attempts: " + _attempts;
-    }
-
+    public void IncrementMatches() => _matches++;
+    public int CalculateFinalScore(float elapsedTime) => Mathf.Max(0, maxScore - (_attempts * attemptPenalty 
+        + Mathf.FloorToInt(elapsedTime) * timePenalty));
+    private void UpdateAttemptsUI() =>  attemptsText.text = "Attempts: " + _attempts;
+    public int GetMatches() => _matches;
+    public int GetAttempts() => _attempts;
     public void ResetScore()
     {
         _attempts = 0;
@@ -41,7 +32,4 @@ public class ScoreManager : MonoBehaviour
         UpdateAttemptsUI();
         scoreText.text = "";
     }
-
-    public int GetMatches() => _matches;
-    public int GetAttempts() => _attempts;
 }

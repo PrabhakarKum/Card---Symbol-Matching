@@ -41,8 +41,5 @@ public class UIManager : MonoBehaviour
         ShowGameplayPanel();
     }
 
-    public void OnMainMenuButtonPressed()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
+    public void OnMainMenuButtonPressed() => SceneManager.LoadScene("MainMenu");
 }

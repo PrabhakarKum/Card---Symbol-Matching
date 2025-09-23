@@ -8,11 +8,7 @@ public class MainMenuUIManager : MonoBehaviour
     public float startGameDelay = 0.3f;
     public string gameSceneName = "GameScene";
 
-    public void OnPlayButtonPressed()
-    {
-        Invoke(nameof(LoadGameScene), startGameDelay);
-    }
-
+    public void OnPlayButtonPressed() => Invoke(nameof(LoadGameScene), startGameDelay);
     public void OnExitButtonPressed()
     {
         Application.Quit();
@@ -22,9 +18,5 @@ public class MainMenuUIManager : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
     }
-
-    private void LoadGameScene()
-    {
-        SceneManager.LoadScene(gameSceneName);
-    }
+    private void LoadGameScene() => SceneManager.LoadScene(gameSceneName);
 }
